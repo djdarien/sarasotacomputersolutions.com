@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sarasota Computer Solutions - Service Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #222;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .pay-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background: #0070f3;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .pay-button:hover {
+      background: #005bb5;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sarasota Computer Solutions</h1>
+    <p>Secure one-time payments for your computer service needs.</p>
+
+    <!-- Replace each href with your actual Stripe Payment Link -->
+    <a class="pay-button" href="https://buy.stripe.com/test_50service" target="_blank">$75 Diagnostic Service</a>
+    <a class="pay-button" href="https://buy.stripe.com/test_100service" target="_blank">$100 General Service</a>
+    <a class="pay-button" href="https://buy.stripe.com/test_150service" target="_blank">$250 Hardware Service</a>
+    <a class="pay-button" href="https://buy.stripe.com/test_customservice" target="_blank">Custom Service</a>
+  </div>
+</body>
+</html>
