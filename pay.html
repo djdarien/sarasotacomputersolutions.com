@@ -49,10 +49,15 @@
     <p>Secure one-time payments for your computer service needs.</p>
 
     <!-- Replace each href with your actual Stripe Payment Link -->
-    <a class="pay-button" href="https://buy.stripe.com/test_50service" target="_blank">$75 Diagnostic Service</a>
-    <a class="pay-button" href="https://buy.stripe.com/test_100service" target="_blank">$100 General Service</a>
-    <a class="pay-button" href="https://buy.stripe.com/test_150service" target="_blank">$250 Hardware Service</a>
-    <a class="pay-button" href="https://buy.stripe.com/test_customservice" target="_blank">Custom Service</a>
+ <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1THr0iRq2k4iPWvTk7AnRvZK"
+  publishable-key="pk_live_51RK5vwRq2k4iPWvToohwK1BJAbMRjacRSGVt7zUYw3nNHcJ00CyQl9svhXtJpncHZXDXYzOSc5vj6F6VwbMcOIbf00otzI12tc"
+>
+</stripe-buy-button>
   </div>
 </body>
 </html>
