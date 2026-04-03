@@ -6,7 +6,7 @@
 
 <title>Sarasota Computer Solutions — IT & Computer Repair</title>
 
-<meta name="description" content="Local IT help for Sarasota families and small businesses. Computer repair, network troubleshooting, cybersecurity, and managed IT services."/>
+<meta name="description" content="Local IT help for Sarasota families and small businesses. Computer repair, network troubleshooting, cybersecurity, EV consulting, and managed IT services."/>
 
 <link rel="icon" href="assets/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,19 +32,48 @@
 <img src="assets/logo.png" alt="Sarasota Computer Solutions logo"/>
 </div>
 
-<nav class="nav">
-<a href="index.html" aria-current="page">Home</a>
-<a href="services.html">Residential Computer Services</a>
-<a href="business-it.html">Business IT</a>
-<a href="dj.html">DJ Services</a>
-<a href="about.html">About</a>
-<a href="contact.html" class="cta">Connect With Us</a>
-<a href="remote-support.html" class="cta">Remote Support</a>
-<a href="in-person.html" class="cta">Schedule Today!</a>
+<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" aria-current="page">Home</a>
+
+  <div class="dropdown">
+    <a href="javascript:void(0)" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+    <div class="dropdown-menu" role="menu">
+      <a href="services.html" role="menuitem">
+        <span class="dd-icon">🖥️</span>
+        <span class="dd-label">Residential Computer Services</span>
+        <span class="dd-arrow">›</span>
+      </a>
+      <a href="business-it.html" role="menuitem">
+        <span class="dd-icon">🏢</span>
+        <span class="dd-label">Business IT</span>
+        <span class="dd-arrow">›</span>
+      </a>
+      <a href="dj.html" role="menuitem">
+        <span class="dd-icon">🎵</span>
+        <span class="dd-label">DJ Services</span>
+        <span class="dd-arrow">›</span>
+      </a>
+      <a href="ev.html" role="menuitem">
+        <span class="dd-icon">⚡</span>
+        <span class="dd-label">EV Consulting</span>
+        <span class="dd-arrow">›</span>
+      </a>
+    </div>
+  </div>
+
+  <a href="about.html">About</a>
+  <a href="contact.html" class="cta">Connect With Us</a>
+  <a href="remote-support.html" class="cta">Remote Support</a>
+  <a href="in-person.html" class="cta">Schedule Today!</a>
 </nav>
 
 </header>
 
+<div class="nav-overlay" id="navOverlay"></div>
 
 <section class="hero">
 <div class="inner">
@@ -59,15 +88,11 @@ Reliable computer repair and managed IT services for Sarasota families and small
 
 <a class="btn primary" href="tel:+19414048345">Call (941) 404-8345</a>
 
-</a>
-</a>
 </div>
 </section>
 
 
 <main class="main">
-
-<!-- BUSINESS IT -->
 
 <section class="section">
 
@@ -114,8 +139,6 @@ management for small businesses throughout Sarasota and the 34233 area.
 
 </section>
 
-
-<!-- RESIDENTIAL -->
 
 <section class="section">
 
@@ -192,6 +215,29 @@ Service Hours: Mon–Fri 9AM–5PM · Sat 10AM–4PM · (*Sunday emergency servi
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+(function(){
+  var h=document.querySelector('.hamburger');
+  var n=document.getElementById('mainNav');
+  var o=document.getElementById('navOverlay');
+  function toggle(){var open=n.classList.toggle('open');h.classList.toggle('active');o.classList.toggle('active');h.setAttribute('aria-expanded',open)}
+  if(h){h.addEventListener('click',toggle)}
+  if(o){o.addEventListener('click',toggle)}
+  document.querySelectorAll('.dropdown-toggle').forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.preventDefault();
+      var d=t.closest('.dropdown');
+      d.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.dropdown')){
+      document.querySelectorAll('.dropdown').forEach(function(d){d.classList.remove('open')});
+    }
+  });
+})();
 </script>
 
 </footer>

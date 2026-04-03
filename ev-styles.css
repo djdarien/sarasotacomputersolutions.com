@@ -1,0 +1,592 @@
+/* EV Consulting Page - Tesla Red Theme */
+
+:root {
+  --ev-red: #e31937;
+  --ev-red-dark: #b5121b;
+  --ev-red-light: #ff2d55;
+  --ev-red-glow: rgba(227, 25, 55, 0.35);
+  --ev-red-subtle: rgba(227, 25, 55, 0.08);
+  --ev-dark: #0a0a0a;
+  --ev-gray: #1a1a1a;
+  --ev-gray-light: #2a2a2a;
+  --ev-white: #ffffff;
+  --ev-texture: #f0f0f0;
+}
+
+/* Page background */
+body.ev-page {
+  background: var(--ev-white);
+  color: var(--ev-dark);
+}
+
+/* Topbar */
+.ev-topbar {
+  background: var(--ev-dark);
+  border-bottom: 2px solid var(--ev-red);
+}
+
+.ev-topbar .nav a {
+  color: #ccc;
+}
+
+.ev-topbar .nav a:hover {
+  background: var(--ev-gray-light);
+  color: #fff;
+}
+
+.ev-topbar .nav a[aria-current="page"] {
+  color: var(--ev-red-light);
+}
+
+.ev-cta {
+  background: var(--ev-red) !important;
+  color: #fff !important;
+}
+
+.ev-cta:hover {
+  background: var(--ev-red-dark) !important;
+}
+
+/* Hero */
+.ev-hero {
+  min-height: 55vh;
+  background: 
+    linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(227,25,55,0.3) 50%, rgba(10,10,10,0.85) 100%),
+    url('https://images.unsplash.com/photo-1560958089-b8a1929cea85?w=1400&h=700&fit=crop') center/cover no-repeat;
+}
+
+.ev-hero::after {
+  background: none;
+}
+
+.ev-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ev-hero h3 {
+  color: var(--ev-red-light);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin-bottom: 1rem;
+}
+
+.ev-hero .lead {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.ev-btn-primary {
+  background: var(--ev-red) !important;
+  color: #fff !important;
+  border: 2px solid var(--ev-red) !important;
+}
+
+.ev-btn-primary:hover {
+  background: var(--ev-red-dark) !important;
+  border-color: var(--ev-red-dark) !important;
+  box-shadow: 0 4px 20px var(--ev-red-glow);
+}
+
+.ev-btn-secondary {
+  background: rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  border: 2px solid rgba(255,255,255,0.5) !important;
+}
+
+.ev-btn-secondary:hover {
+  background: rgba(255,255,255,0.2) !important;
+  border-color: #fff !important;
+}
+
+.ev-btn-outline {
+  background: transparent !important;
+  color: var(--ev-red) !important;
+  border: 2px solid var(--ev-red) !important;
+}
+
+.ev-btn-outline:hover {
+  background: var(--ev-red) !important;
+  color: #fff !important;
+}
+
+.ev-btn-large {
+  padding: 1rem 2rem !important;
+  font-size: 1.1rem !important;
+}
+
+/* Section titles */
+.ev-section-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.ev-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--ev-red);
+  border-radius: 2px;
+}
+
+.ev-intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 1.5rem auto 2rem;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Benefits grid */
+.ev-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ev-benefit-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.ev-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(227, 25, 55, 0.15);
+  border-color: var(--ev-red);
+}
+
+.ev-benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ev-benefit-card h3 {
+  color: var(--ev-red);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.ev-benefit-card p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Comparison table */
+.ev-comparison-section {
+  background: var(--ev-dark);
+  padding: 3rem 1rem;
+  margin: 0 -1rem;
+}
+
+.ev-comparison-section .ev-section-title {
+  color: #fff;
+}
+
+.ev-comparison-section .ev-section-title::after {
+  background: var(--ev-red);
+}
+
+.ev-comparison-table-wrapper {
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.ev-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--ev-gray);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.ev-comparison-table thead {
+  background: var(--ev-red);
+}
+
+.ev-comparison-table th {
+  padding: 1rem 1.25rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.ev-comparison-table td {
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--ev-gray-light);
+  color: #ddd;
+}
+
+.ev-comparison-table tbody tr:hover {
+  background: var(--ev-gray-light);
+}
+
+.ev-col-gas {
+  color: #ff6b6b !important;
+}
+
+.ev-col-electric {
+  color: #51cf66 !important;
+  font-weight: 600;
+}
+
+/* EV Cars grid */
+.ev-cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ev-car-card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.ev-car-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(227, 25, 55, 0.2);
+}
+
+.ev-car-image {
+  height: 220px;
+  overflow: hidden;
+}
+
+.ev-car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ev-car-card:hover .ev-car-image img {
+  transform: scale(1.08);
+}
+
+.ev-car-info {
+  padding: 1.5rem;
+}
+
+.ev-car-info h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+  color: var(--ev-dark);
+}
+
+.ev-car-badge {
+  display: inline-block;
+  background: var(--ev-red);
+  color: #fff;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ev-badge-family {
+  background: #2563eb;
+}
+
+.ev-badge-bold {
+  background: #7c3aed;
+}
+
+.ev-badge-adventure {
+  background: #059669;
+}
+
+.ev-badge-value {
+  background: #d97706;
+}
+
+.ev-badge-sport {
+  background: var(--ev-red-dark);
+}
+
+.ev-car-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.ev-car-features li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.ev-car-features li:last-child {
+  border-bottom: none;
+}
+
+.ev-car-desc {
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Darien section */
+.ev-darien-section {
+  background: linear-gradient(180deg, #fff 0%, var(--ev-red-subtle) 100%);
+}
+
+.ev-darien-text {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.ev-darien-text > p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.25rem;
+}
+
+.ev-darien-text h3 {
+  font-size: 1.5rem;
+  color: var(--ev-red);
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.ev-services-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.ev-service-item {
+  display: flex;
+  gap: 1.25rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 4px solid var(--ev-red);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.ev-service-item:hover {
+  box-shadow: 0 6px 20px rgba(227, 25, 55, 0.12);
+  transform: translateX(5px);
+}
+
+.ev-service-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.ev-service-item h4 {
+  margin: 0 0 0.5rem;
+  color: var(--ev-red);
+  font-size: 1.15rem;
+}
+
+.ev-service-item p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Quote section */
+.ev-quote-section {
+  background: var(--ev-dark);
+  padding: 3rem 1rem;
+  margin: 0 -1rem;
+}
+
+.ev-blockquote {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ev-blockquote p {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.ev-blockquote cite {
+  color: var(--ev-red-light);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* CTA section */
+.ev-cta-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.ev-cta-text {
+  max-width: 650px;
+  margin: 0 auto 1rem;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.ev-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Footer */
+.ev-footer {
+  background: var(--ev-dark);
+  color: #888;
+  border-top: 2px solid var(--ev-red);
+}
+
+.ev-footer a {
+  color: var(--ev-red-light);
+}
+
+/* Hamburger on EV page */
+.ev-hamburger span {
+  background: #fff;
+}
+
+/* Dropdown in EV mobile menu */
+@media (max-width: 899px) {
+  .ev-topbar .dropdown-menu {
+    background: var(--ev-dark);
+    border: none;
+    border-left: 3px solid var(--ev-red);
+    border-radius: 0;
+    margin-left: 1rem;
+    padding: .25rem 0;
+  }
+  .ev-topbar .dropdown-menu a {
+    color: #ccc;
+  }
+  .ev-topbar .dropdown-menu a:hover {
+    background: var(--ev-gray-light);
+    color: #fff;
+  }
+  .ev-topbar .dropdown-menu .dd-icon {
+    background: var(--ev-gray-light);
+  }
+}
+
+/* Responsive */
+@media (max-width: 899px) {
+  .ev-hero {
+    min-height: 45vh;
+  }
+
+  .ev-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ev-cars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ev-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ev-cta-buttons .btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .ev-service-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .ev-comparison-table th,
+  .ev-comparison-table td {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .ev-car-image {
+    height: 200px;
+  }
+
+  .ev-cars-grid {
+    gap: 1.25rem;
+  }
+
+  .ev-section-title {
+    font-size: clamp(1.3rem, 5vw, 2rem) !important;
+  }
+
+  .ev-benefits-grid {
+    gap: 1rem;
+  }
+
+  .ev-benefit-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ev-hero {
+    min-height: 38vh;
+  }
+  .ev-hero h1 {
+    font-size: 1.6rem !important;
+    letter-spacing: 1px;
+  }
+  .ev-hero h3 {
+    font-size: 1rem;
+  }
+  .ev-hero .lead {
+    font-size: 0.9rem;
+  }
+  .ev-btn-large {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.95rem !important;
+  }
+  .ev-car-info {
+    padding: 1rem;
+  }
+  .ev-car-info h3 {
+    font-size: 1.2rem;
+  }
+  .ev-car-features li {
+    font-size: 0.85rem;
+  }
+  .ev-service-item {
+    padding: 1rem;
+  }
+  .ev-blockquote p {
+    font-size: 1.05rem;
+  }
+}

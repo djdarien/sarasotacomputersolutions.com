@@ -12,17 +12,28 @@
     <div class="brand">
       <img src="assets/logo.png" alt="Sarasota Computer Solutions logo" />
     </div>
-    <nav class="nav" aria-label="Primary">
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="mainNav" aria-label="Primary">
       <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="business-it.html">Business IT</a>
-      <a href="dj.html">DJ Services</a>
+      <div class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="services.html" role="menuitem"><span class="dd-icon">🖥️</span><span class="dd-label">Residential Computer Services</span><span class="dd-arrow">›</span></a>
+          <a href="business-it.html" role="menuitem"><span class="dd-icon">🏢</span><span class="dd-label">Business IT</span><span class="dd-arrow">›</span></a>
+          <a href="dj.html" role="menuitem"><span class="dd-icon">🎵</span><span class="dd-label">DJ Services</span><span class="dd-arrow">›</span></a>
+          <a href="ev.html" role="menuitem"><span class="dd-icon">⚡</span><span class="dd-label">EV Consulting</span><span class="dd-arrow">›</span></a>
+        </div>
+      </div>
       <a href="about.html" aria-current="page">About</a>
       <a href="contact.html" class="cta">Connect With Us</a>
       <a href="remote-support.html" class="cta">Remote Support</a>
       <a href="in-person.html" class="cta">Schedule Today!</a>
     </nav>
   </header>
+
+  <div class="nav-overlay" id="navOverlay"></div>
 
   <section class="hero" role="img" aria-label="About banner">
     <div class="inner">
@@ -35,19 +46,8 @@
     <section class="section">
       <div class="feature">
         <h2>Who We Are</h2>
-        <p>
-          Sarasota Computer Solutions was founded with one goal in mind: to provide 
-          <strong>affordable, reliable, and family-friendly IT services</strong> for our community. 
-          We believe technology should empower people — not frustrate them. That’s why we combine 
-          professional expertise with a personal, approachable style of support.
-        </p>
-        <p>
-          Our owner, <strong>Darien Entwistle</strong>, brings over a decade of hands-on experience in 
-          <strong>network engineering, systems administration, and cybersecurity</strong>. 
-          Having worked in fast-paced IT environments and Managed Service Providers (MSPs), Darien 
-          understands the unique needs of both <strong>residential users</strong> and 
-          <strong>small businesses</strong>.
-        </p>
+        <p>Sarasota Computer Solutions was founded with one goal in mind: to provide <strong>affordable, reliable, and family-friendly IT services</strong> for our community. We believe technology should empower people — not frustrate them. That's why we combine professional expertise with a personal, approachable style of support.</p>
+        <p>Our owner, <strong>Darien Entwistle</strong>, brings over a decade of hands-on experience in <strong>network engineering, systems administration, and cybersecurity</strong>. Having worked in fast-paced IT environments and Managed Service Providers (MSPs), Darien understands the unique needs of both <strong>residential users</strong> and <strong>small businesses</strong>.</p>
       </div>
     </section>
 
@@ -56,12 +56,7 @@
       <div class="profile" style="max-width:220px;margin-bottom:1rem;">
         <img src="assets/about_me.jpeg" alt="Darien Entwistle" style="width:100%;height:auto;border-radius:8px;display:block;">
       </div>
-      <p>
-        With more than 10 years of IT industry experience, Darien has managed projects that range 
-        from <strong>network design and deployment</strong> to <strong>cloud migrations, 
-        cybersecurity hardening, and enterprise-level troubleshooting</strong>. 
-        He has a strong background in:
-      </p>
+      <p>With more than 10 years of IT industry experience, Darien has managed projects that range from <strong>network design and deployment</strong> to <strong>cloud migrations, cybersecurity hardening, and enterprise-level troubleshooting</strong>. He has a strong background in:</p>
       <ul>
         <li>Networking (Cisco, F5, Ubiquiti, firewalls, and secure Wi-Fi)</li>
         <li>System Administration (Windows, Linux, Microsoft 365, Active Directory)</li>
@@ -69,11 +64,7 @@
         <li>Automation & Tools (Terraform, Ansible, scripting, containerization)</li>
         <li>Customer Support & MSP Operations</li>
       </ul>
-      <p>
-        Beyond the technical expertise, what sets Darien apart is his <strong>commitment to people</strong>. 
-        He ensures that clients not only get their technology problems solved, but also 
-        <em>understand the solutions</em> — without jargon or confusion.  
-      </p>
+      <p>Beyond the technical expertise, what sets Darien apart is his <strong>commitment to people</strong>. He ensures that clients not only get their technology problems solved, but also <em>understand the solutions</em> — without jargon or confusion.</p>
     </section>
 
     <section class="section">
@@ -88,8 +79,7 @@
 
     <section class="section">
       <h2>Contact</h2>
-      <p>
-        <strong>Owner:</strong> Darien Entwistle<br>
+      <p><strong>Owner:</strong> Darien Entwistle<br>
         <a href="tel:+19414048345">(941) 404-8345</a> · 
         <a href="mailto:dj@sarasotacomputersolutions.com">dj@sarasotacomputersolutions.com</a>
       </p>
@@ -104,6 +94,16 @@
     <p><a href="privacy.html">Privacy</a></p>
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+    (function(){
+      var h=document.querySelector('.hamburger');var n=document.getElementById('mainNav');var o=document.getElementById('navOverlay');
+      function toggle(){var open=n.classList.toggle('open');h.classList.toggle('active');o.classList.toggle('active');h.setAttribute('aria-expanded',open)}
+      if(h){h.addEventListener('click',toggle)}
+      if(o){o.addEventListener('click',toggle)}
+      document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var d=t.closest('.dropdown');d.classList.toggle('open')})});
+      document.addEventListener('click',function(e){if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown').forEach(function(d){d.classList.remove('open')})}});
+    })();
     </script>
   </footer>
 </body>

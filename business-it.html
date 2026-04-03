@@ -1,64 +1,51 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
 <title>Business IT Services | Sarasota Computer Solutions</title>
-
 <meta name="description" content="Managed IT services, Microsoft 365, Google Workspace, JAMF Apple device management and network support for Sarasota businesses."/>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="icon" href="assets/logo.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
-
 </head>
-
 <body>
-
 <header class="topbar">
-
 <div class="brand">
 <img src="assets/logo.png" alt="Sarasota Computer Solutions">
 </div>
-
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="services.html">Residential Computer Services</a>
-<a href="business-it.html" aria-current="page">Business IT</a>
-<a href="dj.html">DJ Services</a>
-<a href="about.html">About</a>
-<a href="contact.html" class="cta">Connect With Us</a>
-<a href="remote-support.html" class="cta">Remote Support</a>
-<a href="in-person.html" class="cta">Schedule Today!</a>
+<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<nav class="nav" id="mainNav">
+  <a href="index.html">Home</a>
+  <div class="dropdown">
+    <a href="javascript:void(0)" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+    <div class="dropdown-menu" role="menu">
+      <a href="services.html" role="menuitem"><span class="dd-icon">🖥️</span><span class="dd-label">Residential Computer Services</span><span class="dd-arrow">›</span></a>
+      <a href="business-it.html" role="menuitem"><span class="dd-icon">🏢</span><span class="dd-label">Business IT</span><span class="dd-arrow">›</span></a>
+      <a href="dj.html" role="menuitem"><span class="dd-icon">🎵</span><span class="dd-label">DJ Services</span><span class="dd-arrow">›</span></a>
+      <a href="ev.html" role="menuitem"><span class="dd-icon">⚡</span><span class="dd-label">EV Consulting</span><span class="dd-arrow">›</span></a>
+    </div>
+  </div>
+  <a href="about.html">About</a>
+  <a href="contact.html" class="cta">Connect With Us</a>
+  <a href="remote-support.html" class="cta">Remote Support</a>
+  <a href="in-person.html" class="cta">Schedule Today!</a>
 </nav>
-
 </header>
-
+<div class="nav-overlay" id="navOverlay"></div>
 
 <section class="hero">
-
 <div class="inner">
-
 <h1>Business IT Services</h1>
-
-<p class="lead">
-Professional IT support and network management for Sarasota small businesses.
-</p>
-
+<p class="lead">Professional IT support and network management for Sarasota small businesses.</p>
 </div>
-
 </section>
-
 
 <main class="main">
 
-
 <section class="section">
-
 <h2>Business IT Pricing</h2>
-
 <div class="grid cards">
 <article class="card">
 <h3>AI Consulting</h3>
@@ -70,100 +57,75 @@ Professional IT support and network management for Sarasota small businesses.
 <p><strong>$250 / hour</strong></p>
 <p>General IT support and troubleshooting for desktops, laptops, servers, and software issues. Includes on-site or remote assistance, problem diagnosis, and resolution of common technical problems.</p>
 </article>
-
 <article class="card">
 <h3>Network & Cloud Consulting</h3>
 <p><strong>$350 / hour</strong></p>
 <p>Advanced networking and infrastructure work including cloud architecture design, network security assessment, performance optimization, and strategic technology planning for business growth.</p>
 </article>
-
 <article class="card">
 <h3>JAMF Apple Device Management</h3>
 <p><strong>$400 / hour</strong></p>
 <p>Comprehensive Mac, iPhone and iPad management for business environments. Includes JAMF setup, device enrollment, policy configuration, app deployment, and ongoing device lifecycle management.</p>
 </article>
-
 <article class="card">
 <h3>Email Migration</h3>
 <p><strong>Project Based / Call for Quote</strong></p>
 <p>Complete Google Workspace to Microsoft 365 migrations with custom pricing based on user count and complexity. Includes data migration, user training, and post-migration support to ensure seamless transition.</p>
 </article>
-
 </div>
-
 </section>
 
-
 <section class="section">
-
 <h2>Services</h2>
-
 <div class="grid cards">
-
 <article class="card">
 <h3>Managed IT Services</h3>
 <p>Proactive monitoring and maintenance of business systems to prevent downtime and security breaches. Includes 24/7 system monitoring, regular security updates, backup verification, and performance optimization to ensure your business technology runs smoothly.</p>
 </article>
-
 <article class="card">
 <h3>Network Management</h3>
 <p>Complete router, firewall, Wi-Fi and infrastructure configuration and maintenance. We design secure, reliable networks that support your business operations, including VLAN setup, firewall rules, wireless optimization, and ongoing network health monitoring.</p>
 </article>
-
 <article class="card">
 <h3>Microsoft 365 Administration</h3>
 <p>Full administration of Microsoft 365 services including email, Teams, SharePoint and security configuration. We handle user management, license optimization, security policies, data loss prevention, and integration with your existing systems.</p>
 </article>
-
 <article class="card">
 <h3>Google Workspace</h3>
 <p>Complete Google Workspace setup and management for businesses of all sizes. Includes domain configuration, user setup, security policies, app integration, and ongoing administration to maximize productivity and collaboration.</p>
 </article>
-
 <article class="card">
 <h3>Cloud Migration</h3>
 <p>Seamless transition from Google Workspace to Microsoft 365 or other cloud platforms. Our migration specialists handle data transfer, user training, application compatibility, and post-migration support to minimize disruption to your business.</p>
 </article>
-
 <article class="card">
 <h3>Apple Device Management</h3>
 <p>Professional JAMF configuration for Macs, iPhones and iPads in business environments. Includes automated device enrollment, security policy enforcement, app distribution, remote management capabilities, and compliance reporting.</p>
 </article>
-
-
 <article class="card">
 <h3>AI Consulting</h3>
 <p>Strategic AI implementation and advisory services including model selection, data pipeline design, deployment, integration with existing systems, and staff training to unlock automation and insights for your business.</p>
 </article>
 </div>
-
 </section>
-
 
 </main>
 
-
 <footer class="footer">
-
-<p>
-© <span id="year"></span> Sarasota Computer Solutions
-</p>
-
-<p>
-<a href="tel:+19414048345">(941) 404-8345</a> ·
-<a href="mailto:dj@sarasotacomputersolutions.com">dj@sarasotacomputersolutions.com</a>
-</p>
-
-<p>
-Service Hours: Mon–Fri 9AM–5PM · Sat 10AM–4PM · Sunday emergency service available (additional $75/hr surcharge)
-</p>
-
+<p>© <span id="year"></span> Sarasota Computer Solutions</p>
+<p><a href="tel:+19414048345">(941) 404-8345</a> · <a href="mailto:dj@sarasotacomputersolutions.com">dj@sarasotacomputersolutions.com</a></p>
+<p>Service Hours: Mon–Fri 9AM–5PM · Sat 10AM–4PM · Sunday emergency service available (additional $75/hr surcharge)</p>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+(function(){
+  var h=document.querySelector('.hamburger');var n=document.getElementById('mainNav');var o=document.getElementById('navOverlay');
+  function toggle(){var open=n.classList.toggle('open');h.classList.toggle('active');o.classList.toggle('active');h.setAttribute('aria-expanded',open)}
+  if(h){h.addEventListener('click',toggle)}
+  if(o){o.addEventListener('click',toggle)}
+  document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var d=t.closest('.dropdown');d.classList.toggle('open')})});
+  document.addEventListener('click',function(e){if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown').forEach(function(d){d.classList.remove('open')})}});
+})();
 </script>
-
 </footer>
-
 </body>
-
 </html>

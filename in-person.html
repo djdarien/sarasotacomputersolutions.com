@@ -1,54 +1,53 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>In-Person Computer Services</title>
 <meta name="description" content="Schedule an on-site visit for residential or business computer services in Sarasota, FL using our Cal.com booking page." />
-
+<link rel="icon" href="assets/logo.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
-
 </head>
-
 <body>
-
 <header class="topbar">
-
 <div class="brand">
 <img src="assets/logo.png" alt="Sarasota Computer Solutions">
 </div>
-
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="services.html">Residential Computer Services</a>
-<a href="business-it.html">Business IT</a>
-<a href="dj.html">DJ Services</a>
-<a href="about.html">About</a>
-<a href="contact.html" class="cta">Connect With Us</a>
+<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<nav class="nav" id="mainNav">
+  <a href="index.html">Home</a>
+  <div class="dropdown">
+    <a href="javascript:void(0)" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+    <div class="dropdown-menu" role="menu">
+      <a href="services.html" role="menuitem"><span class="dd-icon">🖥️</span><span class="dd-label">Residential Computer Services</span><span class="dd-arrow">›</span></a>
+      <a href="business-it.html" role="menuitem"><span class="dd-icon">🏢</span><span class="dd-label">Business IT</span><span class="dd-arrow">›</span></a>
+      <a href="dj.html" role="menuitem"><span class="dd-icon">🎵</span><span class="dd-label">DJ Services</span><span class="dd-arrow">›</span></a>
+      <a href="ev.html" role="menuitem"><span class="dd-icon">⚡</span><span class="dd-label">EV Consulting</span><span class="dd-arrow">›</span></a>
+    </div>
+  </div>
+  <a href="about.html">About</a>
+  <a href="contact.html" class="cta">Connect With Us</a>
   <a href="remote-support.html" class="cta">Remote Support</a>
   <a href="in-person.html" class="cta">Schedule Today!</a>
 </nav>
-
 </header>
-
+<div class="nav-overlay" id="navOverlay"></div>
 
 <section class="hero">
-
-
-
+<div class="inner">
+<h1>In-Person Services</h1>
+<p class="lead">Schedule an on-site visit for computer services in Sarasota, FL.</p>
+</div>
 </section>
-
 
 <main class="main">
 
-<!-- Scheduling Section -->
 <section class="section">
   <h2>Book an On‑Site Visit</h2>
   <p>Whether you need help at home or at your business, use the calendar below to pick a convenient time for an in-person service appointment.</p>
-  <div class="cal-embed" style="width:100%; height:600px;">
+  <div class="cal-embed" style="width:100%;height:600px;">
     <iframe src="https://cal.com/sarasotacomputersolutions/in-person" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </section>
@@ -78,18 +77,19 @@
 
 </main>
 
-
 <footer class="footer">
-
-<p>
-© <span id="year"></span> Sarasota Computer Solutions
-</p>
-
+<p>© <span id="year"></span> Sarasota Computer Solutions</p>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-
+(function(){
+  var h=document.querySelector('.hamburger');var n=document.getElementById('mainNav');var o=document.getElementById('navOverlay');
+  function toggle(){var open=n.classList.toggle('open');h.classList.toggle('active');o.classList.toggle('active');h.setAttribute('aria-expanded',open)}
+  if(h){h.addEventListener('click',toggle)}
+  if(o){o.addEventListener('click',toggle)}
+  document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var d=t.closest('.dropdown');d.classList.toggle('open')})});
+  document.addEventListener('click',function(e){if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown').forEach(function(d){d.classList.remove('open')})}});
+})();
+</script>
 </footer>
-
 </body>
 </html>

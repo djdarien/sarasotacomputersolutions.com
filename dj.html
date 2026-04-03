@@ -20,6 +20,17 @@
     nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px}
     nav a.active,nav a:hover{color:#fff;background:var(--glass)}
 
+    /* Hamburger */
+    .dj-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:110}
+    .dj-hamburger span{display:block;width:24px;height:2.5px;background:#e6eef6;border-radius:2px;transition:all .3s ease}
+    .dj-hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+    .dj-hamburger.active span:nth-child(2){opacity:0}
+    .dj-hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+    /* Mobile nav overlay */
+    .dj-nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99;opacity:0;visibility:hidden;transition:opacity .3s}
+    .dj-nav-overlay.active{opacity:1;visibility:visible}
+
     .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);border-radius:10px}
     .hero h2{font-size:36px;margin:0 0 10px}
     .lead{color:var(--muted);margin:0 0 18px}
@@ -51,8 +62,27 @@
     .modal.open{display:flex}
     .modal img{max-width:90%;max-height:80%;border-radius:8px}
 
+    /* Dropdown */
+    .dd-wrap{position:relative}
+    .dd-wrap .dd-toggle{display:flex;align-items:center;gap:4px;cursor:pointer}
+    .dd-wrap .dd-toggle::after{content:'';border:solid currentColor;border-width:0 2px 2px 0;display:inline-block;padding:3px;transform:rotate(45deg);margin-top:-3px;transition:transform .2s}
+    .dd-wrap.open .dd-toggle::after{transform:rotate(-135deg)}
+    .dd-wrap .dd-menu{position:absolute;top:calc(100% + 4px);left:0;min-width:240px;background:#0b1220;border:1px solid rgba(255,255,255,0.08);border-radius:8px;box-shadow:0 12px 32px rgba(0,0,0,.4);padding:.5rem;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .2s ease;z-index:200}
+    .dd-wrap.open .dd-menu,.dd-wrap:hover .dd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .dd-wrap .dd-menu a{display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;border-radius:6px;color:#e6eef6;font-size:.9rem}
+    .dd-wrap .dd-menu a:hover{background:var(--glass);color:#fff}
+
     /* Responsiveness */
-    @media (max-width:980px){.hero{grid-template-columns:1fr;}.container{padding:18px}.gallery{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr}}
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}.container{padding:18px}.gallery{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr}
+      .dj-hamburger{display:flex}
+      .dj-desktop-nav{display:none}
+      .dj-mobile-nav{position:fixed;top:0;right:0;width:min(300px,85vw);height:100vh;height:100dvh;flex-direction:column;background:#0b1220;padding:calc(70px + 18px) 1rem 2rem;box-shadow:-8px 0 30px rgba(0,0,0,.3);transform:translateX(100%);transition:transform .3s ease;z-index:100;display:flex;gap:0;overflow-y:auto}
+      .dj-mobile-nav.open{transform:translateX(0)}
+      .dj-mobile-nav a{padding:.85rem 1rem;font-size:1rem;border-radius:6px}
+      .dj-mobile-nav .dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;margin-left:1rem;border-left:3px solid var(--accent);display:none;padding:.25rem 0}
+      .dj-mobile-nav .dd-wrap.open .dd-menu{display:block}
+    }
     @media (max-width:540px){.gallery img{height:120px}.brand h1{font-size:16px}.hero h2{font-size:26px}}
   </style>
 </head>
@@ -67,14 +97,43 @@
             <div style="color:var(--muted);font-size:13px">Weddings • Parties • Corporate Events</div>
           </div>
         </div>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-     
-          </ul>
+        <button class="dj-hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="dj-desktop-nav">
+           <ul>
+             <li><a href="index.html">Home</a></li>
+             <li class="dd-wrap">
+               <a href="javascript:void(0)" class="dd-toggle">Services</a>
+               <div class="dd-menu">
+                 <a href="services.html">🖥️ Residential Computer Services</a>
+                 <a href="business-it.html">🏢 Business IT</a>
+                 <a href="dj.html" class="active">🎵 DJ Services</a>
+                 <a href="ev.html">⚡ EV Consulting</a>
+               </div>
+             </li>
+             <li><a href="about.html">About</a></li>
+             <li><a href="contact.html">Contact</a></li>
+           </ul>
+        </nav>
+        <nav class="dj-mobile-nav" id="djMobileNav">
+          <a href="index.html">Home</a>
+          <div class="dd-wrap">
+            <a href="javascript:void(0)" class="dd-toggle">Services</a>
+            <div class="dd-menu">
+              <a href="services.html">🖥️ Residential Computer Services</a>
+              <a href="business-it.html">🏢 Business IT</a>
+              <a href="dj.html" class="active">🎵 DJ Services</a>
+              <a href="ev.html">⚡ EV Consulting</a>
+            </div>
+          </div>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
         </nav>
       </div>
     </header>
+
+    <div class="dj-nav-overlay" id="djNavOverlay"></div>
 
     <section class="hero">
       <div>
@@ -217,20 +276,26 @@
   </div>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Gallery modal
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-    document.getElementById('gallery').addEventListener('click', e => {
-      const img = e.target.closest('img');
-      if(!img) return;
-      modalImg.src = img.dataset.full || img.src;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
+    var hb=document.querySelector('.dj-hamburger');
+    var mn=document.getElementById('djMobileNav');
+    var ov=document.getElementById('djNavOverlay');
+    function djToggle(){var open=mn.classList.toggle('open');hb.classList.toggle('active');ov.classList.toggle('active');hb.setAttribute('aria-expanded',open)}
+    if(hb){hb.addEventListener('click',djToggle)}
+    if(ov){ov.addEventListener('click',djToggle)}
+    document.querySelectorAll('.dd-toggle').forEach(function(t){
+      t.addEventListener('click',function(e){
+        e.preventDefault();
+        var d=t.closest('.dd-wrap');
+        d.classList.toggle('open');
+      });
     });
-    modal.addEventListener('click', () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); modalImg.src = '' });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.dd-wrap')){
+        document.querySelectorAll('.dd-wrap').forEach(function(d){d.classList.remove('open')});
+      }
+    });
   </script>
 </body>
 </html>
