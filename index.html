@@ -26,13 +26,17 @@
 
 <body class="home">
 
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
 <header class="topbar">
 
 <div class="brand">
 <img src="assets/logo.png" alt="Sarasota Computer Solutions logo"/>
 </div>
 
-<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+  <a class="phone-call" href="tel:+19414048345" aria-label="Call (941) 404-8345"><span class="phone-emoji">📞</span><span class="phone-text">(941) 404-8345</span></a>
+
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
   <span></span><span></span><span></span>
 </button>
 
@@ -75,33 +79,35 @@
 
 <div class="nav-overlay" id="navOverlay"></div>
 
-<section class="hero">
-<div class="inner">
+  <section class="hero">
+  <div class="inner">
+    <h1>Sarasota Computer Solutions</h1>
+    <h3>Simple, Friendly Tech Help</h3>
+    <p class="lead">Clear, patient support for seniors, families, and small businesses.</p>
+    <ul class="hero-list" style="margin:1rem 0 1.25rem;padding-left:1.25rem;">
+      <li><strong>Residential services:</strong> computer repair, home Wi‑Fi, on‑site visits</li>
+      <li><strong>Small business:</strong> managed IT, networking, cloud & backups</li>
+      <li><strong>Also:</strong> DJ services, EV consulting, personalized training & ongoing support</li>
+    </ul>
+    <a class="btn primary" href="tel:+19414048345">Call (941) 404‑8345</a>
+    <a class="btn secondary" href="contact.html">Contact Us</a>
+  </div>
+  </section>
 
-<h1>Sarasota Computer Solutions</h1>
 
-<h3>Affordable IT. Uncompromised Quality.</h3>
-
-<p class="lead">
-Reliable computer repair and managed IT services for Sarasota families and small businesses.
-</p>
-
-<a class="btn primary" href="tel:+19414048345">Call (941) 404-8345</a>
-
-</div>
-</section>
-
-
-<main class="main">
+<main id="mainContent" class="main">
 
 <section class="section">
 
-<h2>Small Business IT Services</h2>
+<h2>Residential & Small Business Services</h2>
 
 <p>
-Sarasota Computer Solutions provides professional IT support and network
-management for small businesses throughout Sarasota and the 34233 area.
+We offer practical, easy-to-understand technology help. Key areas:
 </p>
+<ul style="margin-top:.5rem;padding-left:1.25rem;">
+  <li><strong>Residential:</strong> computer repair, home Wi‑Fi, virus removal, and in‑home visits.</li>
+  <li><strong>Small business:</strong> managed IT, networking, cloud migrations, and ongoing support.</li>
+</ul>
 
 <div class="grid cards">
 
@@ -217,28 +223,7 @@ Service Hours: Mon–Fri 9AM–5PM · Sat 10AM–4PM · (*Sunday emergency servi
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
-<script>
-(function(){
-  var h=document.querySelector('.hamburger');
-  var n=document.getElementById('mainNav');
-  var o=document.getElementById('navOverlay');
-  function toggle(){var open=n.classList.toggle('open');h.classList.toggle('active');o.classList.toggle('active');h.setAttribute('aria-expanded',open)}
-  if(h){h.addEventListener('click',toggle)}
-  if(o){o.addEventListener('click',toggle)}
-  document.querySelectorAll('.dropdown-toggle').forEach(function(t){
-    t.addEventListener('click',function(e){
-      e.preventDefault();
-      var d=t.closest('.dropdown');
-      d.classList.toggle('open');
-    });
-  });
-  document.addEventListener('click',function(e){
-    if(!e.target.closest('.dropdown')){
-      document.querySelectorAll('.dropdown').forEach(function(d){d.classList.remove('open')});
-    }
-  });
-})();
-</script>
+<script src="scripts/site-nav.js"></script>
 
 </footer>
 

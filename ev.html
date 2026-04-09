@@ -14,11 +14,13 @@
 </head>
 <body class="ev-page">
 
+  <a class="skip-link" href="#mainContent">Skip to content</a>
   <header class="topbar ev-topbar">
     <div class="brand">
       <img src="assets/logo.png" alt="Sarasota Computer Solutions logo" />
     </div>
-    <button class="hamburger ev-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <a class="phone-call" href="tel:+19414048345" aria-label="Call (941) 404-8345"><span class="phone-emoji">📞</span><span class="phone-text">(941) 404-8345</span></a>
+    <button class="hamburger ev-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
       <span></span><span></span><span></span>
     </button>
     <nav class="nav" id="mainNav" aria-label="Primary">
@@ -52,7 +54,7 @@
     </div>
   </section>
 
-  <main class="main ev-main">
+  <main id="mainContent" class="main ev-main">
 
     <section class="section" id="why-ev">
       <h2 class="ev-section-title">Why Go Electric?</h2>
@@ -333,16 +335,7 @@
     </p>
     <p><a href="privacy.html">Privacy</a></p>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-    <script>
-    (function(){
-      var h=document.querySelector('.ev-hamburger');var n=document.getElementById('mainNav');var o=document.getElementById('navOverlay');
-      function toggle(){var open=n.classList.toggle('open');h.classList.toggle('active');o.classList.toggle('active');h.setAttribute('aria-expanded',open)}
-      if(h){h.addEventListener('click',toggle)}
-      if(o){o.addEventListener('click',toggle)}
-      document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var d=t.closest('.dropdown');d.classList.toggle('open')})});
-      document.addEventListener('click',function(e){if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown').forEach(function(d){d.classList.remove('open')})}});
-    })();
-    </script>
+    <script src="scripts/site-nav.js"></script>
   </footer>
 
 </body>

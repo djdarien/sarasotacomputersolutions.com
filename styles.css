@@ -24,6 +24,30 @@ a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:none}
 img{max-width:100%;height:auto;display:block}
 
+/* Accessibility & mobile nav improvements */
+/* Larger base font for readability */
+body{font-size:18px;line-height:1.75}
+
+/* Skip link for keyboard users */
+.skip-link{
+  position:absolute;left:12px;top:12px;padding:.5rem .75rem;background:#111;color:#fff;border-radius:6px;z-index:99999;transform:translateY(-120%);transition:transform .18s ease;}
+.skip-link:focus{transform:translateY(0);outline:3px solid var(--ring)}
+
+/* Bigger, easier-to-tap buttons */
+.btn{min-height:48px;font-size:1.05rem;padding:0.9rem 1.5rem}
+
+/* Bigger nav link tap targets */
+.nav a{padding:1rem 1.25rem;font-size:1.05rem}
+
+/* Mobile nav stacking fixes */
+.hamburger{z-index:170}
+.nav{z-index:160}
+.nav-overlay{z-index:150;pointer-events:none;transition:opacity .28s ease}
+.nav-overlay.active{pointer-events:auto}
+
+/* Ensure off-canvas nav animates and scrolls smoothly */
+.nav{will-change:transform;touch-action:pan-y;-webkit-overflow-scrolling:touch}
+
 /* ===== TOPBAR ===== */
 .topbar{
   display:flex;align-items:center;justify-content:space-between;
@@ -33,6 +57,37 @@ img{max-width:100%;height:auto;display:block}
 }
 .brand{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
 .brand img{width:140px;height:auto}
+
+/* Prominent phone link in topbar and floating on mobile */
+.topbar .phone-call{
+  margin-left:0.5rem;
+  background:var(--brand);
+  color:var(--brand-ink);
+  padding:.45rem .8rem;
+  border-radius:999px;
+  font-weight:800;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  text-decoration:none;
+  box-shadow:0 6px 18px rgba(2,6,23,.08);
+}
+.phone-call{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none}
+.topbar .phone-call:focus{outline:3px solid var(--ring);outline-offset:2px}
+.topbar .phone-call .phone-text{font-variant-numeric:tabular-nums}
+
+@media(max-width:899px){
+  /* Move phone CTA to a floating button on small screens for easy tap */
+  .topbar .phone-call{
+    position:fixed;
+    right:1rem;
+    bottom:1.25rem;
+    padding:.6rem .9rem;
+    font-size:1rem;
+    z-index:10001;
+    border-radius:999px;
+  }
+}
 
 /* Hamburger button (hidden on desktop) */
 .hamburger{
@@ -257,7 +312,7 @@ body.home .hero{
     box-shadow:-8px 0 30px rgba(0,0,0,.15);
     transform:translateX(100%);
     transition:transform .3s ease;
-    z-index:105;
+    z-index:9999;
     overflow-y:auto;
   }
   .nav.open{transform:translateX(0)}
@@ -288,17 +343,41 @@ body.home .hero{
   .dropdown.open .dropdown-menu{display:block}
   .dropdown-menu a{padding:.6rem 1rem}
 
+  /* Mobile submenu improvements for easier tapping and visibility */
+  .dropdown-toggle{display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem;border-radius:.5rem}
+  .dropdown-toggle[aria-expanded="true"]{font-weight:700}
+  .dropdown.open > .dropdown-toggle::after{transform:rotate(-135deg)}
+  .dropdown-menu{
+    background: #f8fafc;
+    border-radius:8px;
+    margin:0.5rem 0 0 0;
+    padding: .25rem;
+  }
+  .dropdown-menu a{
+    padding:.85rem 1rem;
+    min-height:44px;
+    display:block;
+    color:var(--ink);
+    border-radius:6px;
+  }
+  .dropdown-menu a:hover{background:#eef2ff}
+
   /* Overlay behind mobile menu */
   .nav-overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,.4);
-    z-index:104;
+    z-index:9998;
     opacity:0;
     visibility:hidden;
-    transition:opacity .3s;
+    transition:opacity .25s ease;
+    pointer-events:none;
   }
-  .nav-overlay.active{opacity:1;visibility:visible}
+  .nav-overlay.active{opacity:1;visibility:visible;pointer-events:auto}
+
+  /* Ensure mobile nav links are dark and readable */
+  .nav{color:#0f172a}
+  .nav a{color:#0f172a}
 
   .brand img{width:120px}
   .hero{min-height:38vh}

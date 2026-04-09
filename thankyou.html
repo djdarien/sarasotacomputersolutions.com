@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
   <header class="topbar">
     <div class="brand"><img src="assets/logo.png" alt="Sarasota Computer Solutions logo" /></div>
+    <a class="phone-call" href="tel:+19414048345" aria-label="Call (941) 404-8345"><span class="phone-emoji">📞</span><span class="phone-text">(941) 404-8345</span></a>
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -17,7 +19,7 @@
     </nav>
   </header>
 
-  <main class="main">
+  <main id="mainContent" class="main">
     <section class="section">
       <div class="feature">
         <h1>Thanks — we received your request</h1>
@@ -30,6 +32,7 @@
   <footer class="footer">
     <p>&copy; <span id="year"></span> Sarasota Computer Solutions</p>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="scripts/site-nav.js"></script>
   </footer>
 </body>
 </html>
