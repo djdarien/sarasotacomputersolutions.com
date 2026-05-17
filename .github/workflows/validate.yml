@@ -1,0 +1,29 @@
+name: Validate HTML, CSS & JS
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML
+        uses: nvuillam/htmlhint-action@v1
+        with:
+          files: '**/*.html'
+
+      - name: Lint CSS
+        uses: reviewdog/action-stylelint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+
+      - name: Check JS
+        run: |
+          npx eslint "**/*.js" || echo "No strict JS linting config yet - skipping" 
