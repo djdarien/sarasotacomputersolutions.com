@@ -1,0 +1,23 @@
+name: Lighthouse SEO & Performance Audit
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 10 * * 1'  # Weekly on Mondays
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://djdarien.github.io/sarasotacomputersolutions.com/
+            https://djdarien.github.io/sarasotacomputersolutions.com/services.html
+          uploadArtifacts: true
+          temporaryStorage: true
